@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
-const Order = ({ pizza }) => {
+const Order = ({ pizza, setShowModal }) => {
   const containerVariants = {
     hidden: {
       x: "100vw",
@@ -20,12 +21,18 @@ const Order = ({ pizza }) => {
     },
     exit: {
       x: "-100vw",
-      ease: "ease-in-out",
+      ease: "ease",
       transition: {
         duration: 0.3,
       },
     },
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowModal(true);
+    }, 3000);
+  }, [setShowModal]);
 
   const ChildVariants = {
     hidden: {
