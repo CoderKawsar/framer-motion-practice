@@ -7,15 +7,23 @@ const Base = ({ addBase, pizza }) => {
 
   const containerVariants = {
     hidden: {
-      x: "100vw",
       opacity: 0,
+      x: "100vw",
     },
     visible: {
-      x: 0,
       opacity: 1,
+      x: 0,
       transition: {
-        delay: 0.2,
+        delay: 0.5,
         duration: 0.5,
+        type: "tween",
+      },
+    },
+    exit: {
+      x: "-100vw",
+      ease: "ease-in-out",
+      transition: {
+        duration: 0.3,
       },
     },
   };
@@ -51,6 +59,7 @@ const Base = ({ addBase, pizza }) => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
+      exit="exit"
     >
       <h3>Step 1: Choose Your Base</h3>
       <ul>
